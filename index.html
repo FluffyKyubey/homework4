@@ -1,0 +1,45 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coding Quiz</title>
+
+        <link rel="stylesheet" href="Assets/css/styles.css">
+    </head>
+<body>
+    <div class="scores"><a href="highscores.html">View highscores</a> </div>
+
+    <div class="timer">Time: <span id="time">0</span></div>
+
+    <div class="content">
+        <div id="start-screen" class="start">
+            <h1>Math Quiz Challenge</h1>
+            <p>Try to answer the following math questions within the time limit. 
+                Your score is decided by how much time you have left after answering all the questions.
+                Beware incorrect answers subract from your total time which means your score goes down.
+            </p>
+            <button id="start">Start the Quiz</button>
+        </div>
+
+        <div id="questions" class="hide">
+            <h2 id="question-title"></h2>
+            <div id="choices" class="choices"></div>
+        </div>
+
+        <div id="end-screen" class="hide">
+            <h2>Congrats you finished!</h2>
+            <p>Your final score is <span id="final-score"></span></p>
+            <p> Enter your initials for your score to be imortalized:
+                <input type="text" id="initials" max="3">
+                <button id="submit">Submit Your Initials</button>
+            </p>
+        </div>
+
+        
+    </div>
+
+
+</body>
+</html>
