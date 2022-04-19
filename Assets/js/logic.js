@@ -1,19 +1,20 @@
+var currentQuestionIndex = 0;
+var time = questions.length * 15;
+var timerId;
+
 var questionsEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
-var feedbackEl = document.getElementById("feedback");
+var announcementEl = document.getElementById("announcement");
+
 var sfxRight = new Audio("assets/sfx/correct.wav");
 var sfxWrong = new Audio("assets/sfx/incorrect.wav");
-var currentQuestionIndex = 0;
-var time = questions.length * 15;
-var timerId;
 
 function startQuiz () {
-    var startScreenEl = document.getElementById(startScreen);
-
+    var startScreenEl = document.getElementById("start-screen");
     startScreenEl.setAttribute("class", "hide");
 
     questionsEl.removeAttribute("class");
@@ -27,8 +28,8 @@ function startQuiz () {
 
 function getQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
-    var titleEl = document.getElementById("question-title");
 
+    var titleEl = document.getElementById("question-title");
     titleEl.textContent = currentQuestion.title;
 
     choicesEl.innerHTML = "";
@@ -54,20 +55,21 @@ function questionClick() {
         if (time < 0) {
             time = 0;
         }
+
         timerEl.textContent = time;
 
         sfxWrong.play();
 
-        feedbackEl.textContent = "Incorrect :("
-    }else {
+        announcementEl.textContent = "Incorrect :(";
+    } else {
         sfxRight.play();
 
-        feedbackEl.textContent = "WooHoo! :D";
+        announcementEl.textContent = "WooHoo";
     }
     
-    feedbackEl.setAttribute("class", "feedback");
+    announcementEl.setAttribute("class", "announcement");
     setTimeout(function() {
-        feedbackEl.setAttribute("class", "feedback hide");
+        announcementEl.setAttribute("class", "announcement hide");
     }, 1000);
 
     currentQuestionIndex++;

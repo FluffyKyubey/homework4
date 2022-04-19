@@ -9,7 +9,7 @@ function makeHighScores () {
         var liTag = document.createElement("li");
         liTag.textContent = score.initials + " - " + score.score;
 
-        var olEl = getElementById("highscores");
+        var olEl = document.getElementById("highscores");
         olEl.appendChild(liTag);
     });
 }
@@ -21,4 +21,4 @@ function clearHighscores() {
 
 document.getElementById("clear").onclick = clearHighscores;
 
-printHighscores();
+makeHighScores();
